@@ -6,6 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import school.entity.Course;
 import school.entity.CourseMaterial;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -32,6 +34,12 @@ class CourseMaterialRepositoryTest {
     courseMaterialRepository.save(courseMaterial);
 
 
+    }
+
+    @Test
+     public  void printAllCourseMaterials(){
+        List<CourseMaterial> courseMaterials = courseMaterialRepository.findAll();
+        System.out.println("Course Materials = :" + courseMaterials);
     }
 
 

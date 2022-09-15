@@ -28,4 +28,16 @@ public class Course {
     private Long courseId;
     private String title;
     private Integer credit;
+
+
+    @OneToOne(
+            fetch = FetchType.EAGER,
+            mappedBy = "course"
+
+    )
+    private  CourseMaterial courseMaterial;
+    /**
+     * the mapped is used when the relationship is already defined
+     * in another table
+     * */
 }
