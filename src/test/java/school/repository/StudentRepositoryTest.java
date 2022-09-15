@@ -65,6 +65,23 @@ public void getStudentByName() {
 
     }
 
+    //testing the native Query
+    @Test
+    public  void printgetstudentByEmaiNative(){
+        Student student = studentRepository.getStudentByEmailAddressNative("davidtzirima@gmail.com");
+        System.out.println(student);
+
+    }
+/**********************************upDating tests **************************/
+@Test
+public void updateStudentNameByEmailIdTest(){
+    studentRepository.updateStudentNameByEmailID(
+            "newName",
+            "davidtzirima@gmail.com"
+    );
+
+}
+
 
 
 
