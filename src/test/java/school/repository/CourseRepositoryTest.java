@@ -7,11 +7,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import school.entity.Course;
+import school.entity.Student;
 import school.entity.Teacher;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -95,6 +94,34 @@ class CourseRepositoryTest {
         List<Course> courses = courseRepository.findAll(sortByCreditDesc).getContent();
 
         System.out.println("Courses  +" + courses);
+    }
+
+    @Test
+    public void saveCourseWithstudentAndTeacher(){
+
+        Teacher teacher = Teacher.
+                builder()
+                .firstName("gafa")
+                .lastName("chicken")
+                .build();
+
+        Student student = Student.builder().
+                firstName("student")
+                .lastName("student")
+                .emailId("chicken@gmail.com")
+                .build();
+         Course course = Course.builder()
+                 .title("AI")
+                 .credit(6 )
+                 .teacher(teacher)
+                 .build() ;
+
+         course.addStudents(student);
+
+         courseRepository.save(course);
+
+
+
     }
 
 }

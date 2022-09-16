@@ -6,4 +6,5 @@ import school.entity.Course;
 
 @Repository
 public interface CourseRepository  extends JpaRepository<Course,Long> {
+
 }
