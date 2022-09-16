@@ -40,4 +40,13 @@ public class Course {
      * the mapped is used when the relationship is already defined
      * in another table
      * */
+
+    @ManyToOne(
+            cascade= CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private  Teacher teacher;
 }
